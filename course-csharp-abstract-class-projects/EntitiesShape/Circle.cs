@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace course_csharp_abstract_class_projects.Entities
+namespace course_csharp_abstract_class_projects.EntitiesShape
 {
     public class Circle : Shape
     {

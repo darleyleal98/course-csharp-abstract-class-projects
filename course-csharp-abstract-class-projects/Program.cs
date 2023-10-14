@@ -1,4 +1,4 @@
-﻿using course_csharp_abstract_class_projects.Entities;
+﻿using course_csharp_abstract_class_projects.EntitiesShape;
 using course_csharp_abstract_class_projects.Entities.Enums;
 using System;
 
