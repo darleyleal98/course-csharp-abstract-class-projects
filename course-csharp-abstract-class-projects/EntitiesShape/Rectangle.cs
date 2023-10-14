@@ -1,4 +1,5 @@
-﻿using System;
+﻿using course_csharp_abstract_class_projects.Entities.Enums;
+using System;
 using System.Text;
 
 namespace course_csharp_abstract_class_projects.EntitiesShape
@@ -8,8 +9,7 @@ namespace course_csharp_abstract_class_projects.EntitiesShape
         public double Width { get; set; }
         public double Height { get; set; }
 
-        public Rectangle() { }
-        public Rectangle(double width, double height)
+        public Rectangle(double width, double height, Color color) : base(color)
         {
             Width = width;
             Height = height;

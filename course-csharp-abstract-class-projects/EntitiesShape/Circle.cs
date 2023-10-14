@@ -1,4 +1,5 @@
-﻿using System;
+﻿using course_csharp_abstract_class_projects.Entities.Enums;
+using System;
 using System.Text;
 
 namespace course_csharp_abstract_class_projects.EntitiesShape
@@ -6,8 +7,7 @@ namespace course_csharp_abstract_class_projects.EntitiesShape
     public class Circle : Shape
     {
         public double Radius { get; set; }
-        public Circle() { }
-        public Circle(double radius)
+        public Circle(double radius, Color color) : base(color)
         {
             Radius = radius;
         }

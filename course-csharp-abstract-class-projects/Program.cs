@@ -33,14 +33,14 @@ namespace course_csharp_abstract_class_projects
                             Console.Write("Height: ");
                             double heightOfShape = double.Parse(Console.ReadLine());  
                             
-                            listOfShapes.Add(new Rectangle(withOfShape, heightOfShape));
+                            listOfShapes.Add(new Rectangle(withOfShape, heightOfShape, colorOfShape));
                             break;
 
                         case "C":
                             Console.Write("Radius: ");
                             double radiusOfShape = double.Parse(Console.ReadLine());
 
-                            listOfShapes.Add(new Circle(radiusOfShape));
+                            listOfShapes.Add(new Circle(radiusOfShape, colorOfShape));
                             break;
 
                         default:
