@@ -1,6 +1,7 @@
 ﻿using course_csharp_abstract_class_projects.EntitiesShape;
 using course_csharp_abstract_class_projects.Entities.Enums;
 using System;
+using course_csharp_abstract_class_projects.EntitiesPayers;
 
 namespace course_csharp_abstract_class_projects
 {
@@ -10,37 +11,37 @@ namespace course_csharp_abstract_class_projects
         {
             try
             {
-                Console.Write("Enter the number os shapes: ");
-                int quantityOfShapes = int.Parse(Console.ReadLine());
+                List<TaxPayer> listOfTaxPayers = new List<TaxPayer>();
 
-                List<Shape> listOfShapes = new List<Shape>();
+                Console.Write("Enter the number of tax payers: ");
+                int quantityPayers = int.Parse(Console.ReadLine());
 
-                for (int i = 0; i < quantityOfShapes; i++)
+                for (int i = 0; i < quantityPayers; i++)
                 {
-                    Console.WriteLine($"Shape #{i + 1} data: ");
-                    Console.Write("Rectangle or Circle (r/c)? ");
-                    string typeOfShape = Console.ReadLine().ToUpper();
+                    Console.WriteLine($"Ta payer #{i + 1} data:");
 
-                    Console.Write("Color (Black/ Blue/ Red)? ");
-                    Color colorOfShape = Enum.Parse<Color>(Console.ReadLine());
+                    Console.Write("Individual or company (I/ C)? ");
+                    string option = Console.ReadLine().ToUpper();
 
-                    switch (typeOfShape)
+                    Console.Write("Name: ");
+                    string name = Console.ReadLine();
+
+                    Console.Write("Anual income: ");
+                    double anualIncome = double.Parse(Console.ReadLine());
+
+                    switch (option)
                     {
-                        case "R":
-                            Console.Write("Width: ");
-                            double withOfShape = double.Parse(Console.ReadLine());
+                        case "I":
+                            Console.Write("Health expenditures: ");
+                            double expenditure = double.Parse(Console.ReadLine());
+                            listOfTaxPayers.Add(new Individual(name, anualIncome, expenditure));
 
-                            Console.Write("Height: ");
-                            double heightOfShape = double.Parse(Console.ReadLine());  
-                            
-                            listOfShapes.Add(new Rectangle(withOfShape, heightOfShape, colorOfShape));
                             break;
 
                         case "C":
-                            Console.Write("Radius: ");
-                            double radiusOfShape = double.Parse(Console.ReadLine());
-
-                            listOfShapes.Add(new Circle(radiusOfShape, colorOfShape));
+                            Console.Write("Number of employees: ");
+                            int employees = int.Parse(Console.ReadLine());
+                            listOfTaxPayers.Add(new Company(name, anualIncome, employees));
                             break;
 
                         default:
@@ -48,11 +49,17 @@ namespace course_csharp_abstract_class_projects
                             break;
                     }
                 }
-                Console.WriteLine("SHAPE OF AREAS");
-                foreach (Shape shapes in listOfShapes)
+                double sum = 0.0;
+
+                Console.WriteLine("\nTAXES PAID:");
+
+                foreach (var taxPayer in listOfTaxPayers)
                 {
-                    Console.WriteLine(shapes.ToString());
+                    Console.WriteLine(taxPayer.ToString());
+                    sum += taxPayer.Tax();
                 }
+
+                Console.WriteLine($"\nTOTAL TAXES: {sum:c}");
             }
             catch
             {
