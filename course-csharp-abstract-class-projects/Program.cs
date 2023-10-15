@@ -18,7 +18,7 @@ namespace course_csharp_abstract_class_projects
 
                 for (int i = 0; i < quantityPayers; i++)
                 {
-                    Console.WriteLine($"Ta payer #{i + 1} data:");
+                    Console.WriteLine($"Tax payer #{i + 1} data:");
 
                     Console.Write("Individual or company (I/ C)? ");
                     string option = Console.ReadLine().ToUpper();
